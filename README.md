@@ -8,9 +8,14 @@ $ docker-compose build
 $ docker-compose run web bundle exec rails db:setup
 ```
 
-## Running
+## Running server locally
 ```
 $ docker-compose up
+```
+
+## Running tests
+```
+$ docker-compose run web bundle exec rspec
 ```
 
 ## Updating gems
