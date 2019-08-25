@@ -1,5 +1,7 @@
 # Rails 6 on Docker working example
 
+This app demonstrates Rails 6 with PostgreSQL and Webpacker, all running in Docker.
+
 ## Initial setup
 ```
 $ docker-compose build
