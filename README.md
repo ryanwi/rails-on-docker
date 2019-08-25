@@ -13,6 +13,13 @@ $ docker-compose run web bundle exec rails db:setup
 $ docker-compose up
 ```
 
+## Updating gems
+```
+$ docker-compose run web bundle install
+$ docker-compose up --build
+```
+
+
 ## Credits/References
 
 * https://docs.docker.com/compose/rails/
