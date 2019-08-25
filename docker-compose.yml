@@ -16,6 +16,15 @@ services:
       DATABASE_URL: postgres://postgres@db
     depends_on:
       - db
+  # webpacker:
+  #   build: .
+  #   env_file:
+  #     - ".env.docker"
+  #   command: ./bin/webpack-dev-server
+  #   volumes:
+  #     - .:/usr/src/app
+  #   ports:
+  #     - "3035:3035"
 
 volumes:
   db-data:

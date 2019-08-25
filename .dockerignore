@@ -1,0 +1,12 @@
+# Git
+.git
+.gitignore
+
+# Logs
+log/*
+
+# Temp files
+tmp/*
+
+# Ignore node_modules
+node_modules
