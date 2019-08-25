@@ -1,11 +1,13 @@
 FROM ruby:2.6.3
 
-RUN apt-get update -qq && apt-get install -y nodejs
-
 WORKDIR /usr/src/app/
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-RUN apt-get install -y nodejs
+# Install node version that will enable installation of yarn
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
+
+RUN apt-get install -y --no-install-recommends \
+    nodejs \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY Gemfile* package.json yarn.lock /usr/src/app/
 RUN bundle install
@@ -13,7 +15,7 @@ RUN npm install -g yarn
 # RUN yarn -v
 # RUN which yarn
 # RUN yarn config current
-RUN yarn install --check-files
+RUN yarn install
 
 COPY . /usr/src/app/
 
