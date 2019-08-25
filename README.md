@@ -13,7 +13,7 @@ $ docker-compose run web bundle exec rails db:setup
 $ docker-compose up
 ```
 
-## Credits
+## Credits/References
 
 * https://docs.docker.com/compose/rails/
 * https://rubyinrails.com/2019/03/29/dockerify-rails-6-application-setup/
