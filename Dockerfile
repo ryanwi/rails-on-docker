@@ -1,4 +1,10 @@
-FROM ruby:2.6.4
+FROM ruby:2.6.4-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libpq-dev \
+    curl \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /usr/src/app/
 
@@ -7,14 +13,12 @@ RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
 
 RUN apt-get install -y --no-install-recommends \
     nodejs \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY Gemfile* package.json yarn.lock /usr/src/app/
+RUN gem install bundler -v 1.17.2
 RUN bundle install
 RUN npm install -g yarn
-# RUN yarn -v
-# RUN which yarn
-# RUN yarn config current
 RUN yarn install
 
 COPY . /usr/src/app/
