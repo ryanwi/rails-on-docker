@@ -23,10 +23,10 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe FoosController, type: :controller do
+RSpec.describe ArticlesController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # Foo. As you add validations to Foo, be sure to
+  # Article. As you add validations to Article, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -38,12 +38,12 @@ RSpec.describe FoosController, type: :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # FoosController. Be sure to keep this updated too.
+  # ArticlesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
-      Foo.create! valid_attributes
+      Article.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -51,8 +51,8 @@ RSpec.describe FoosController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      foo = Foo.create! valid_attributes
-      get :show, params: {id: foo.to_param}, session: valid_session
+      article = Article.create! valid_attributes
+      get :show, params: {id: article.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -66,29 +66,29 @@ RSpec.describe FoosController, type: :controller do
 
   describe "GET #edit" do
     it "returns a success response" do
-      foo = Foo.create! valid_attributes
-      get :edit, params: {id: foo.to_param}, session: valid_session
+      article = Article.create! valid_attributes
+      get :edit, params: {id: article.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Foo" do
+      it "creates a new Article" do
         expect {
-          post :create, params: {foo: valid_attributes}, session: valid_session
-        }.to change(Foo, :count).by(1)
+          post :create, params: {article: valid_attributes}, session: valid_session
+        }.to change(Article, :count).by(1)
       end
 
-      it "redirects to the created foo" do
-        post :create, params: {foo: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Foo.last)
+      it "redirects to the created article" do
+        post :create, params: {article: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(Article.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {foo: invalid_attributes}, session: valid_session
+        post :create, params: {article: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
@@ -100,41 +100,41 @@ RSpec.describe FoosController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested foo" do
-        foo = Foo.create! valid_attributes
-        put :update, params: {id: foo.to_param, foo: new_attributes}, session: valid_session
-        foo.reload
+      it "updates the requested article" do
+        article = Article.create! valid_attributes
+        put :update, params: {id: article.to_param, article: new_attributes}, session: valid_session
+        article.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the foo" do
-        foo = Foo.create! valid_attributes
-        put :update, params: {id: foo.to_param, foo: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(foo)
+      it "redirects to the article" do
+        article = Article.create! valid_attributes
+        put :update, params: {id: article.to_param, article: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(article)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        foo = Foo.create! valid_attributes
-        put :update, params: {id: foo.to_param, foo: invalid_attributes}, session: valid_session
+        article = Article.create! valid_attributes
+        put :update, params: {id: article.to_param, article: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested foo" do
-      foo = Foo.create! valid_attributes
+    it "destroys the requested article" do
+      article = Article.create! valid_attributes
       expect {
-        delete :destroy, params: {id: foo.to_param}, session: valid_session
-      }.to change(Foo, :count).by(-1)
+        delete :destroy, params: {id: article.to_param}, session: valid_session
+      }.to change(Article, :count).by(-1)
     end
 
-    it "redirects to the foos list" do
-      foo = Foo.create! valid_attributes
-      delete :destroy, params: {id: foo.to_param}, session: valid_session
-      expect(response).to redirect_to(foos_url)
+    it "redirects to the articles list" do
+      article = Article.create! valid_attributes
+      delete :destroy, params: {id: article.to_param}, session: valid_session
+      expect(response).to redirect_to(articles_url)
     end
   end
 
