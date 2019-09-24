@@ -7,7 +7,8 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
   web:
-    build: .
+    build:
+      context: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/usr/src/app
@@ -28,7 +29,6 @@ services:
       - "3035:3035"
     depends_on:
       - web
-
 volumes:
   db-data:
     driver: local
