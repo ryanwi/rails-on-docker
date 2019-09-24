@@ -10,3 +10,7 @@ tmp/*
 
 # Ignore node_modules
 node_modules
+
+# Ignore locally installed gems
+vendor/bundle/**/*
+vendor/bundle

@@ -5,17 +5,19 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
   web:
     build:
       context: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/usr/src/app
+      - bundle:/bundle
     ports:
       - "3000:3000"
     environment:
-      DATABASE_URL: postgres://postgres@db
+      - DATABASE_URL=postgres://postgres@db
+      - BUNDLE_PATH=/bundle/vendor
     depends_on:
       - db
   webpacker:
@@ -30,5 +32,7 @@ services:
     depends_on:
       - web
 volumes:
-  db-data:
+  db_data:
+    driver: local
+  bundle:
     driver: local
