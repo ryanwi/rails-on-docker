@@ -1,4 +1,4 @@
-FROM ruby:2.6.4-slim
+FROM ruby:2.6.5-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
