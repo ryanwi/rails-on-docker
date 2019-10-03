@@ -16,6 +16,7 @@ services:
       - "3000:3000"
     environment:
       - DATABASE_URL=postgres://postgres@db
+      - WEBPACKER_DEV_SERVER_HOST=webpacker
     depends_on:
       - db
   webpacker:

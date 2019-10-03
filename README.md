@@ -35,7 +35,11 @@ $ docker-compose up --build
 * https://docs.docker.com/compose/rails/
 * https://rubyinrails.com/2019/03/29/dockerify-rails-6-application-setup/
 * https://pragprog.com/book/ridocker/docker-for-rails-developers
+
+For Webpack dev server:
 * https://github.com/rails/webpacker/blob/master/docs/docker.md
+* https://github.com/rails/webpacker/issues/863
+* https://github.com/rails/webpacker/issues/1019
 
 For Bootstrap
 
