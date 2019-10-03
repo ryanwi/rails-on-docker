@@ -5,7 +5,7 @@ This app demonstrates Rails 6 with PostgreSQL and Webpacker, all running in Dock
 ## Initial setup
 ```
 $ docker-compose build
-$ docker-compose run web bundle exec rails db:setup
+$ docker-compose run --rm web bundle exec rails db:setup
 ```
 
 ## Running server locally
@@ -15,15 +15,20 @@ $ docker-compose up
 
 ## Running tests
 ```
-$ docker-compose run web bundle exec rspec
+$ docker-compose run --rm web bundle exec rspec
 ```
 
 ## Updating gems
 ```
-$ docker-compose run web bundle install
+$ docker-compose run --rm web bundle install
 $ docker-compose up --build
 ```
 
+## Updating Yarn packages
+```
+$ docker-compose run --rm web yarn upgrade
+$ docker-compose up --build
+```
 
 ## Credits/References
 
