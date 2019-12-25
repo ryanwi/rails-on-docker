@@ -103,7 +103,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
-    pg (1.1.4)
+    pg (1.2.0)
     popper_js (1.14.5)
     pry (0.12.2)
       coderay (~> 1.1.0)
