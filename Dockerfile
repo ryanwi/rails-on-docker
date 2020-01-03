@@ -16,7 +16,8 @@ RUN apt-get install -y --no-install-recommends \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY Gemfile* package.json yarn.lock /usr/src/app/
-RUN gem install bundler -v 1.17.2
+# RUN gem update --system
+# RUN gem install bundler -v 2.1.3
 RUN bundle install
 RUN npm install -g yarn
 RUN yarn install
