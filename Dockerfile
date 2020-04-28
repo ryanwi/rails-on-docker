@@ -6,23 +6,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-WORKDIR /usr/src/app/
-
-# Install node version that will enable installation of yarn
+# Add Node.js to sources list
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 
+# Install Node.js version that will enable installation of yarn
 RUN apt-get install -y --no-install-recommends \
     nodejs \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY Gemfile* package.json yarn.lock /usr/src/app/
-# RUN gem update --system
-# RUN gem install bundler -v 2.1.3
-RUN bundle install
+# Install yarn
 RUN npm install -g yarn
-RUN yarn install
 
-COPY . /usr/src/app/
+# Use what the base image provides rather than create our own  app directory
+WORKDIR /usr/src/app/
 
 # Add a script to be executed every time the container starts.
 COPY .dockerdev/entrypoint.sh /usr/bin/
