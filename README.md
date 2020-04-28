@@ -31,7 +31,7 @@ $ docker-compose run --rm web bundle exec rspec
 
 ## Updating gems
 ```
-$ docker-compose run --rm web bundle install
+$ docker-compose run --rm web bundle update
 $ docker-compose up --build
 ```
 
@@ -46,12 +46,13 @@ $ docker-compose up --build
 * https://docs.docker.com/compose/rails/
 * https://rubyinrails.com/2019/03/29/dockerify-rails-6-application-setup/
 * https://pragprog.com/book/ridocker/docker-for-rails-developers
+* https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development
+* https://medium.com/@cristian_rivera/cache-rails-bundle-w-docker-compose-45512d952c2d
 
 For Webpack dev server:
 * https://github.com/rails/webpacker/blob/master/docs/docker.md
 * https://github.com/rails/webpacker/issues/863
 * https://github.com/rails/webpacker/issues/1019
 
-For Bootstrap
-
+For Bootstrap:
 * https://gorails.com/forum/install-bootstrap-with-webpack-with-rails-6-beta

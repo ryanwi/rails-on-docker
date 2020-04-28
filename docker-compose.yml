@@ -17,10 +17,16 @@ services:
     environment:
       - DATABASE_URL=postgres://postgres@db
       - WEBPACKER_DEV_SERVER_HOST=webpacker
+      - BOOTSNAP_CACHE_DIR=/usr/local/bundle/_bootsnap
+      - WEB_CONCURRENCY=1
       - HISTFILE=/usr/src/app/.dockerdev/.bash_history
+      - MALLOC_ARENA_MAX=2
     volumes:
       - .:/usr/src/app/:cached
       - bundle:/usr/local/bundle
+      - rails_cache:/usr/src/app/tmp/cache
+      - node_modules:/usr/src/app/node_modules
+      - packs:/usr/src/app/public/packs
     depends_on:
       - db
   webpacker:
@@ -29,9 +35,20 @@ services:
     command: ./bin/webpack-dev-server
     ports:
       - "3035:3035"
+    environment:
+      - NODE_ENV=development
+      - RAILS_ENV=development
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+      - MALLOC_ARENA_MAX=2
     volumes:
       - .:/usr/src/app:cached
       - bundle:/usr/local/bundle
+      - node_modules:/usr/src/app/node_modules
+      - packs:/usr/src/app/public/packs
+
 volumes:
   bundle:
   db_data:
+  node_modules:
+  rails_cache:
+  packs:
