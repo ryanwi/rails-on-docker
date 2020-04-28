@@ -17,6 +17,7 @@ services:
     environment:
       - DATABASE_URL=postgres://postgres@db
       - WEBPACKER_DEV_SERVER_HOST=webpacker
+      - HISTFILE=/usr/src/app/.dockerdev/.bash_history
     depends_on:
       - db
   webpacker:
