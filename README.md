@@ -8,9 +8,20 @@ $ docker-compose build
 $ docker-compose run --rm web bundle exec rails db:setup
 ```
 
-## Running server locally
+## Running the Rails app
 ```
 $ docker-compose up
+```
+
+## Running the Rails console
+When the app is already running with `docker-compose` up, attach to the container:
+```
+$ docker-compose exec web bundle exec rails c
+```
+
+When no container running yet, start up a new one:
+```
+$ docker-compose run --rm web bundle exec rails c
 ```
 
 ## Running tests
