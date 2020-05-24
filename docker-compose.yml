@@ -1,9 +1,11 @@
 version: '3.4'
 services:
   db:
-    image: postgres
+    image: postgres:12
     ports:
       - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=changeme
     volumes:
       - db_data:/var/lib/postgresql/data
   web:
@@ -15,7 +17,7 @@ services:
     stdin_open: true
     tty: true    
     environment:
-      - DATABASE_URL=postgres://postgres@db
+      - DATABASE_URL=postgres://postgres:changeme@db
       - WEBPACKER_DEV_SERVER_HOST=webpacker
       - BOOTSNAP_CACHE_DIR=/usr/local/bundle/_bootsnap
       - WEB_CONCURRENCY=1
