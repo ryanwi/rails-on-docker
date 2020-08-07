@@ -53,6 +53,3 @@ For Webpack dev server:
 * https://github.com/rails/webpacker/blob/master/docs/docker.md
 * https://github.com/rails/webpacker/issues/863
 * https://github.com/rails/webpacker/issues/1019
-
-For Bootstrap:
-* https://gorails.com/forum/install-bootstrap-with-webpack-with-rails-6-beta
