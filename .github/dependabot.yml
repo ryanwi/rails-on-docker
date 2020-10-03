@@ -18,3 +18,12 @@ updates:
     separator: "-"
   open-pull-requests-limit: 15
   rebase-strategy: disabled
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "12:00"
+  pull-request-branch-name:
+    separator: "-"
+  open-pull-requests-limit: 15
+  rebase-strategy: disabled
