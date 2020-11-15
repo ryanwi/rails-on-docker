@@ -16,8 +16,6 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: Install dependencies
-        run: bundle install
       - name: Run linters
         run: bundle exec rubocop --parallel
       - name: Run security checks
@@ -29,8 +27,8 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      postgres:
-        image: postgres
+      db:
+        image: postgres:12
         env:
           POSTGRES_PASSWORD: postgres
         options: >-
@@ -45,9 +43,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: Install dependencies
-        run: bundle install
       - name: Run tests
         env:
-          DATABASE_URL: postgres://postgres:postgres@postgres
+          DATABASE_URL: postgres://postgres:postgres@localhost
         run: bundle exec rake
