@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      db:
+      postgres:
         image: postgres:12
         env:
           POSTGRES_PASSWORD: postgres
@@ -36,6 +36,8 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        ports:
+          5432:5432
 
     steps:
       - uses: actions/checkout@v2
@@ -46,12 +48,12 @@ jobs:
       - name: Create database
         env:
           RAILS_ENV: test
-          DATABASE_URL: postgres://postgres:postgres@db:5432
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432
         run: |
           bundle exec rails db:create
           bundle exec rails db:structure:load
       - name: Run tests
         env:
           RAILS_ENV: test
-          DATABASE_URL: postgres://postgres:postgres@db:5432
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432
         run: bundle exec rake
