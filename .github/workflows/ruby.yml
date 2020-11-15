@@ -51,7 +51,7 @@ jobs:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
         run: |
           bundle exec rails db:create
-          bundle exec rails db:structure:load
+          bundle exec rails db:schema:load
       - name: Run tests
         env:
           RAILS_ENV: test
