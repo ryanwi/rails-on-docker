@@ -1,0 +1,19 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.7.2
+  TargetRailsVersion: 6.1.0
+  DisabledByDefault: true
+  Exclude:
+    - "bin/**/*"
+    - "vendor/**/*"
+    - "public/**/*"
+    - "node_modules/**/*"
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: true
+Layout/TrailingEmptyLines:
+  Enabled: true
+Layout/TrailingWhitespace:
+  Enabled: true
