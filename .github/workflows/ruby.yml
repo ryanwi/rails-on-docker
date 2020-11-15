@@ -26,6 +26,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      RAILS_ENV: test
+      NODE_ENV: test
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432
+
     services:
       postgres:
         image: postgres:12
@@ -69,22 +74,12 @@ jobs:
           yarn install --pure-lockfile
 
       - name: Create database
-        env:
-          RAILS_ENV: test
-          DATABASE_URL: postgres://postgres:postgres@localhost:5432
         run: |
           bundle exec rails db:create
           bundle exec rails db:schema:load
 
       - name: Compile assets
-        env:
-          RAILS_ENV: test
-          NODE_ENV: test
         run: bundle exec rails webpacker:compile
 
       - name: Run tests
-        env:
-          RAILS_ENV: test
-          NODE_ENV: test
-          DATABASE_URL: postgres://postgres:postgres@localhost:5432
         run: bundle exec rake
