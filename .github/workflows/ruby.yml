@@ -55,5 +55,6 @@ jobs:
       - name: Run tests
         env:
           RAILS_ENV: test
+          NODE_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
         run: bundle exec rake
