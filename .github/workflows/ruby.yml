@@ -43,7 +43,15 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Create database
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://postgres:postgres@db:5432
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:structure:load
       - name: Run tests
         env:
+          RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@db:5432
         run: bundle exec rake
