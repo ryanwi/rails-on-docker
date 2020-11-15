@@ -45,5 +45,5 @@ jobs:
           bundler-cache: true
       - name: Run tests
         env:
-          DATABASE_URL: postgres://postgres:postgres@localhost
+          DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432
         run: bundle exec rake
