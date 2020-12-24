@@ -1,5 +1,7 @@
 # Rails 6 on Docker working example
 
+![Ruby](https://github.com/ryanwi/rails-on-docker/workflows/Ruby/badge.svg)
+
 This app demonstrates Rails 6 with PostgreSQL and Webpacker, all running in Docker.
 
 ## Initial setup
