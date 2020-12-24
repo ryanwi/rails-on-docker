@@ -1,4 +1,4 @@
-# Rails 6 on Docker working example
+# Rails 6 on Docker demo application
 
 ![Ruby](https://github.com/ryanwi/rails-on-docker/workflows/Ruby/badge.svg)
 
