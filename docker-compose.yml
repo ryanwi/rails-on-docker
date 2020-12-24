@@ -10,12 +10,12 @@ services:
       - db_data:/var/lib/postgresql/data
   web:
     build: .
-    image: rails-on-docker:1.1.0
+    image: rails-on-docker:1.2.0
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     ports:
       - "3000:3000"
     stdin_open: true
-    tty: true    
+    tty: true
     environment:
       - DATABASE_URL=postgres://postgres:changeme@db
       - WEBPACKER_DEV_SERVER_HOST=webpacker
@@ -33,7 +33,7 @@ services:
       - db
   webpacker:
     build: .
-    image: rails-on-docker:1.1.0
+    image: rails-on-docker:1.2.0
     command: ./bin/webpack-dev-server
     ports:
       - "3035:3035"
