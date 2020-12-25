@@ -1,4 +1,4 @@
-FROM ruby:3.0-rc-slim
+FROM ruby:3.0.0-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
@@ -15,8 +15,9 @@ RUN apt-get install -y --no-install-recommends \
     nodejs \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install yarn
 RUN npm install -g yarn
+
+RUN gem update --system
 
 # Use what the base image provides rather than create our own  app directory
 WORKDIR /usr/src/app/
