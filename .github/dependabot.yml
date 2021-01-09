@@ -14,7 +14,7 @@ updates:
     interval: daily
   pull-request-branch-name:
     separator: "-"
-- package-ecosystem: dependabot
+- package-ecosystem: github-actions
   directory: "/"
   schedule:
     interval: daily
