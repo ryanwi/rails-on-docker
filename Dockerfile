@@ -3,7 +3,7 @@ FROM ruby:3.0.2-slim
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
-    postgresql-client-11 \
+    postgresql-client \
     curl \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
