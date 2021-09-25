@@ -83,8 +83,25 @@ jobs:
           bundle exec rails db:create
           bundle exec rails db:schema:load
 
-          #      - name: Compile assets
-          #        run: bundle exec rails webpacker:compile
+      - name: Setup Node
+        uses: actions/setup-node@v2.4.0
+        with:
+          node-version: '14'
+
+      - name: Find yarn cache location
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: JS package cache
+        uses: actions/cache@v2.1.6
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Compile assets
+        run: bundle exec rails webpacker:compile
 
       - name: Run tests
         run: bundle exec rake
