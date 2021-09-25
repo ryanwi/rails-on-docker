@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add Node.js to sources list
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 
 # Install Node.js version that will enable installation of yarn
 RUN apt-get install -y --no-install-recommends \
