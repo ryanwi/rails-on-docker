@@ -18,10 +18,34 @@ jobs:
           bundler-cache: true
       - name: Run linters
         run: bundle exec rubocop --parallel
-      - name: Run security checks
+      - name: Ruby security checks
         run: |
           bundle exec bundler-audit --update
           bundle exec brakeman -q -w2
+
+  js-checks:
+    steps:
+      - uses: actions/setup-node@v2.4.0
+        with:
+          node-version: '14'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2.1.4
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install packages
+        run: yarn install --pure-lockfile
+      - name: yarn formatting
+        run: yarn format:check
+      - name: yarn linting
+        run: yarn lint:check
+      - name: yarn audit
+        run: /bin/bash -c 'yarn audit; [[ $? -ge 8 ]] && exit 1 || exit 0'
 
   test:
     runs-on: ubuntu-latest
