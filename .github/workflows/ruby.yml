@@ -43,12 +43,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install packages
-        run: |
-          yarn install --pure-lockfile
+        run: yarn install --pure-lockfile
       - name: yarn linting
-         run: yarn lint:check
-       - name: yarn audit
-         run: /bin/bash -c 'yarn audit; [[ $? -ge 8 ]] && exit 1 || exit 0'
+        run: yarn lint:check
+      - name: yarn audit
+        run: /bin/bash -c 'yarn audit; [[ $? -ge 8 ]] && exit 1 || exit 0'
 
   test:
     runs-on: ubuntu-latest
