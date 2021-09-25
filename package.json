@@ -6,7 +6,6 @@
     "@rails/activestorage": "^6.1.4",
     "@rails/ujs": "^6.1.4",
     "@rails/webpacker": "^5.4.3",
-    "ansi-regex": "^6.0.1",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
