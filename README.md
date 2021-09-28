@@ -4,6 +4,8 @@
 
 This app demonstrates Rails 6 with PostgreSQL and Webpacker, all running in Docker.
 
+**NOTE:** [There is also an example Rails 7 application working in Docker without Webpack or node.js](https://github.com/ryanwi/rails7-on-docker)
+
 ## Initial setup
 ```
 docker compose build
