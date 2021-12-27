@@ -76,12 +76,14 @@ GEM
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     diff-lcs (1.5.0)
+    digest (3.1.0)
     erubi (1.10.0)
     ffi (1.15.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
+    io-wait (0.2.1)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -99,6 +101,17 @@ GEM
     mini_portile2 (2.6.1)
     minitest (5.15.0)
     msgpack (1.4.2)
+    net-pop (0.1.1)
+      digest
+      net-protocol
+      timeout
+    net-protocol (0.1.2)
+      io-wait
+      timeout
+    net-smtp (0.3.1)
+      digest
+      net-protocol
+      timeout
     nio4r (2.5.8)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
@@ -208,6 +221,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.1.0)
     tilt (2.0.10)
+    timeout (0.2.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -240,6 +254,8 @@ DEPENDENCIES
   byebug
   jbuilder (~> 2.11)
   listen (>= 3.0.5, < 3.8)
+  net-pop
+  net-smtp
   pg (>= 0.18, < 2.0)
   pry-rails
   puma (~> 5.5)
