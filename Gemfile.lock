@@ -101,6 +101,10 @@ GEM
     mini_portile2 (2.6.1)
     minitest (5.15.0)
     msgpack (1.4.2)
+    net-imap (0.2.2)
+      digest
+      net-protocol
+      strscan
     net-pop (0.1.1)
       digest
       net-protocol
@@ -219,6 +223,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    strscan (3.0.1)
     thor (1.1.0)
     tilt (2.0.10)
     timeout (0.2.0)
@@ -254,6 +259,7 @@ DEPENDENCIES
   byebug
   jbuilder (~> 2.11)
   listen (>= 3.0.5, < 3.8)
+  net-imap
   net-pop
   net-smtp
   pg (>= 0.18, < 2.0)
