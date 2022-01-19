@@ -78,8 +78,8 @@ jobs:
           bundle exec rails db:create
           bundle exec rails db:schema:load
 
-      - name: Compile assets
-        run: bundle exec rails webpacker:compile
+      # - name: Compile assets
+      #   run: bundle exec rails webpacker:compile
 
       - name: Run tests
         run: bundle exec rake
