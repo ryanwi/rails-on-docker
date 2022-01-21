@@ -45,6 +45,10 @@ docker compose run --rm web yarn upgrade
 docker compose up --build
 ```
 
+## Webpacker retirement
+
+Many Rails 6 apps will be or were created with the Webpacker gem. On January 19, 2022, [Webpacker announed its retirement](https://github.com/rails/webpacker#webpacker-has-been-retired-). As a result, it has been replaced in this repo with jsbundling-rails based on the recommendation in the announcement.
+
 ## Credits/References
 
 * https://docs.docker.com/compose/rails/
@@ -52,8 +56,6 @@ docker compose up --build
 * https://pragprog.com/book/ridocker/docker-for-rails-developers
 * https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development
 * https://medium.com/@cristian_rivera/cache-rails-bundle-w-docker-compose-45512d952c2d
+* https://github.com/rails/jsbundling-rails/blob/main/docs/switch_from_webpacker.md
+* https://dev.to/thomasvanholder/how-to-migrate-from-webpacker-to-jsbundling-rails-esbuild-5f2
 
-For Webpack dev server:
-* https://github.com/rails/webpacker/blob/master/docs/docker.md
-* https://github.com/rails/webpacker/issues/863
-* https://github.com/rails/webpacker/issues/1019
