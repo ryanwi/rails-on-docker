@@ -14,6 +14,9 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  # Allow access when running in docker
+  config.web_console.whitelisted_ips = ["172.16.0.0/12", "192.168.0.0/16"]
+
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
