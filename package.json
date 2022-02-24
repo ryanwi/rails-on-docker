@@ -16,6 +16,8 @@
     "build": "webpack --config ./config/webpack/webpack.config.js"
   },
   "babel": {
-    "presets": ["@babel/env"]
+    "presets": [
+      "@babel/env"
+    ]
   }
 }
