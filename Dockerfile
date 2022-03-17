@@ -1,10 +1,13 @@
 FROM ruby:3.1.1-slim
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
     build-essential \
+    gnupg2 \
+    curl \
+    less \
+    git \
     libpq-dev \
     postgresql-client \
-    curl \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add Node.js to sources list
@@ -17,7 +20,7 @@ RUN apt-get install -y --no-install-recommends \
 
 RUN npm install -g yarn
 
-RUN gem update --system
+RUN gem update --system && gem install bundler
 
 # Use what the base image provides rather than create our own  app directory
 WORKDIR /usr/src/app/
