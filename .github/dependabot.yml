@@ -10,6 +10,7 @@ updates:
     interval: daily
   ignore:
     - dependency-name: "rails"
+      update-types: ["version-update:semver-major", "version-update:semver-minor"]
 - package-ecosystem: npm
   directory: "/"
   schedule:
