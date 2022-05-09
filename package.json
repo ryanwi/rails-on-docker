@@ -4,7 +4,7 @@
   "dependencies": {
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.16.11",
-    "@rails/actioncable": "^6.1.5",
+    "@rails/actioncable": "^7.0.3",
     "@rails/activestorage": "^6.1.5",
     "@rails/ujs": "^6.1.5",
     "turbolinks": "^5.2.0",
