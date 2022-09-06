@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.19.0",
-    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-env": "^7.19.0",
     "@rails/actioncable": "^6.1.5",
     "@rails/activestorage": "^6.1.5",
     "@rails/ujs": "^6.1.5",
