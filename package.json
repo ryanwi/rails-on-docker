@@ -5,7 +5,7 @@
     "@babel/core": "^7.19.1",
     "@babel/preset-env": "^7.19.1",
     "@rails/actioncable": "^6.1.5",
-    "@rails/activestorage": "^6.1.5",
+    "@rails/activestorage": "^7.0.4",
     "@rails/ujs": "^7.0.4",
     "turbolinks": "^5.2.0",
     "webpack": "^5.74.0",
