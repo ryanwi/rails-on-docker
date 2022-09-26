@@ -6,6 +6,18 @@ This app demonstrates Rails 6 with PostgreSQL and Webpack (with jsbundling-rails
 
 **NOTE:** [There is also an example Rails 7 application working in Docker without Webpack or node.js](https://github.com/ryanwi/rails7-on-docker)
 
+## Requirements
+
+Please ensure you are using Docker Compose V2. This project relies on the `docker compose` command, not the previous `docker-compose` standalone program.
+
+https://docs.docker.com/compose/#compose-v2-and-the-new-docker-compose-command
+
+Check your docker compose version with:
+```
+% docker compose version
+Docker Compose version v2.10.2
+```
+
 ## Initial setup
 ```
 cp .env.example .env
