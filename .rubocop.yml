@@ -2,7 +2,7 @@ require:
   - rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 3.2.1
+  TargetRubyVersion: 3.2.2
   TargetRailsVersion: 6.1.0
   DisabledByDefault: true
   Exclude:
