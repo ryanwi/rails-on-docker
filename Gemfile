@@ -8,7 +8,7 @@ gem 'rails', '~> 6.1.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 6.2'
+gem 'puma', '~> 6.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
