@@ -2,7 +2,7 @@
   "name": "railsondocker",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.22.5",
+    "@babel/core": "^7.22.8",
     "@babel/preset-env": "^7.22.5",
     "@rails/actioncable": "^7.0.6",
     "@rails/activestorage": "^7.0.5",
