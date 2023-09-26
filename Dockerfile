@@ -11,16 +11,16 @@ RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
     postgresql-client \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Add Node.js to sources list
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+# Install Node.js and Yarn
+ARG NODE_VERSION=20.7.0
+ARG YARN_VERSION=latest
+ENV PATH=/usr/local/node/bin:$PATH
+RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
+    /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
+    npm install -g yarn@$YARN_VERSION && \
+    rm -rf /tmp/node-build-master
 
-# Install Node.js version that will enable installation of yarn
-RUN apt-get install -y --no-install-recommends \
-    nodejs \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN npm install -g yarn
-
+# Update RubyGems
 RUN gem update --system && gem install bundler
 
 # Use what the base image provides rather than create our own  app directory
