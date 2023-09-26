@@ -1,4 +1,8 @@
-FROM ruby:3.2.2-slim
+# syntax=docker/dockerfile:1
+
+ARG RUBY_VERSION=3.2.2
+
+FROM ruby:${RUBY_VERSION}-slim
 
 RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
     build-essential \
