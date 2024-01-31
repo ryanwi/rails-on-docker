@@ -62,7 +62,7 @@ GEM
       zeitwerk (~> 2.3)
     ast (2.4.2)
     bindex (0.8.1)
-    bootsnap (1.17.1)
+    bootsnap (1.18.3)
       msgpack (~> 1.2)
     brakeman (6.1.1)
       racc
